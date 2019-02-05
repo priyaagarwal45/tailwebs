@@ -1,0 +1,30 @@
+.table-holder {
+  margin-top: 10px;
+}
+.table-header{
+  display: flex;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.table-header h5{
+  font-size: 22px;
+  display: flex;
+  flex: 1;
+}
+.fixed-header-content{
+  background-color: black;
+  color:white;
+  padding:5px;
+}
+.sider-content{
+  width:200px;
+  background-color: grey;
+  height:900px;
+}
+.main-content{
+  margin-left: 200px;
+  margin-top: -900px;
+  padding:20px;
+}
+

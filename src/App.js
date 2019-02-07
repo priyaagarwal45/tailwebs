@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import "antd/dist/antd.css";
 import './App.css';
 import { Table, Row, Col, Layout, Input, Button, Modal, Select } from "antd";
-import Highlighter from 'react-highlight-words';
 
 const Option = Select.Option;
 const { Header, Sider, Content } = Layout;
@@ -11,7 +10,6 @@ const columns = [{
   title: 'Name',
   dataIndex: 'name',
   key: 'name',
-  // ...this.getColumnSearchProps('name'),
 }, {
   title: 'Subject',
   dataIndex: 'subject',
@@ -104,7 +102,7 @@ class App extends Component {
   }
   studentName = e => {
     console.log(e);
-    this.name = e.target.value;
+    this.name =e.target.value;
   }
 
   subjectName = e => {
@@ -123,26 +121,25 @@ class App extends Component {
   // Add the score if the student with same name and subject exists
   addData = () => {
     for (var i = 0; i < data.length; i++) {
-      if ((data[i].name === this.name) && (data[i].subject === this.subject)) {
+      if ((data[i].name == this.name) && (data[i].subject == this.subject)) {
         data[i].score = data[i].score + parseInt(this.score);
         this.flag = true;
       }
     }
-    console.log(this.flag);
     if (!this.flag) {
       data.push({
-        name: this.name,
-        subject: this.subject,
-        score: parseInt(this.score)
+        name:this.name,
+        subject:this.subject,
+        score:parseInt(this.score)
       })
     }
 
   }
 
   render() {
-    var name = "";
-    var subject = "";
-    var score = "";
+    var name ;
+    var subject ;
+    var score ;
     var flag = false;
     return [
       <div className="mainPage">
@@ -160,7 +157,7 @@ class App extends Component {
               <h1 style={{textAlign:'center'}}>Student's Marks List</h1>
               <h3>Add details</h3>
               <Table columns={columns} dataSource={data}  onChange={this.onChange}/>
-              <Button type="primary" onClick={this.showModal}>Add</Button>
+              <Button type="primary" onClick={() => {this.showModal(); this.flag = false}}>Add</Button>
             </div>
           </Content>
         </Layout>
@@ -168,7 +165,7 @@ class App extends Component {
       <Modal
         title="Add Data"
         visible={this.state.visible}
-        onOk={() => { this.addData(); this.handleOk(); this.setState({ name: " ", score: "", subject: "" }) }}
+        onOk={() => { this.addData(); this.handleOk(); this.setState({ name: "", score: "", subject: "" }) }}
         okText="Add"
         onCancel={this.handleCancel}
       >

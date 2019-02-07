@@ -154,7 +154,7 @@ class App extends Component {
           </Layout>
           <Content>
             <div className="main-content">
-              <h1 style={{textAlign:'center'}}>Student's Marks List</h1>
+              <h1 style={{textAlign:'center'}}>Students Marks List</h1>
               <h3>Add details</h3>
               <Table columns={columns} dataSource={data}  onChange={this.onChange}/>
               <Button type="primary" onClick={() => {this.showModal(); this.flag = false}}>Add</Button>
